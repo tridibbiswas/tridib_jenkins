@@ -1,0 +1,19 @@
+---
+- name: NTP syncup with handlers
+  hosts: client
+  tasks:
+    - name: Install NTP package
+      yum:
+        name: chrony
+        state: present
+    - name: copy the ntp conf file
+      copy:
+        src: chrony.conf
+        dest: /etc/chrony.conf
+      notify:
+        - restart_ntp
+  handlers:
+    - name: restart_ntp
+      service:
+        name: chronyd
+        state: restarted
