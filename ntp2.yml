@@ -1,5 +1,5 @@
 ---
-- name: NTP syncup with handlers
+- name: chrony syncup with handlers
   hosts: client
   tasks:
     - name: Install chrony  package
