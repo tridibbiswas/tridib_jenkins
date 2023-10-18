@@ -2,7 +2,7 @@
 - name: NTP syncup with handlers
   hosts: client
   tasks:
-    - name: Install NTP package
+    - name: Install chrony  package
       yum:
         name: chrony
         state: present
